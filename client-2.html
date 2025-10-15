@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo-2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <style>
+      header {
+        background: linear-gradient(90deg, #212529, #343a40, #495057);
+        color: #f8f9fa;
+        font-size: 38px;
+        font-weight: bold;
+        text-align: left;
+        padding: 15px 10px;
+        border-radius: 0 0 25px 25px;
+        letter-spacing: 2px;
+      }
+     </style> 
+  </head>
+  <body>
+    <header>
+        <div> <i class="bi bi-book"></i>Kitabi Kida</div>
+    </header>
+    <div class="d-flex justify-content-center align-items-start" style="min-height: 90vh; margin-top: 40px;">
+     <div class="card shadow-lg p-4" style="width: 400px; border-radius: 15px;">
+     <div class="card-body">
+      <h2 class="card-title text-center mb-4">Register your account</h2>
+      <form>
+        <!-- username -->
+        <div class="mb-3">
+          <label for="uname" class="form-label">Username</label>
+          <input type="uname" class="form-control" id="inputEmail" placeholder="Enter your username">
+        </div>
+        <!-- Email -->
+        <div class="mb-3">
+          <label for="Email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="inputEmail" placeholder="Enter your email">
+        </div>
+        <!-- Password -->
+        <div class="mb-3">
+          <label for="Password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="inputPassword" placeholder="Enter your password">
+        </div>
+        <!-- comfirm-Password -->
+        <div class="mb-3">
+          <label for="Password" class="form-label">Confirm Password</label>
+          <input type="password" class="form-control" id="inputPassword" placeholder="Enter your password again">
+        </div>
+        <!-- Button -->
+        <div class="d-grid gap-4 d-md-block">
+          <button class="btn btn-dark" type="button">Submit</button>
+          <button class="btn btn-secondary" type="button">Reset</button>
+        </div>
+        
+        <!-- Extra Links -->
+        
+        <p class="text-center">
+        already have an account? <a href="client-1.html" class="text-decoration-none">Login</a>
+        </p>
+        </div>
+        </div>
+    </div>
+    </form>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  </body>
+</html>

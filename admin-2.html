@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Add Book | Admin Panel</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f6fa;
+      overflow-x: hidden;
+    }
+    /* Sidebar */
+    .sidebar {
+      height: 100vh;
+      background: linear-gradient(180deg, #1f1f1f, #343a40);
+      color: #ddd;
+      padding-top: 20px;
+      position: fixed;
+      width: 250px;
+      transition: all 0.4s ease;
+    }
+    .sidebar h4 {
+      font-weight: bold;
+      letter-spacing: 1px;
+      animation: fadeInDown 1s ease;
+      background-color: #212529;
+    }
+    .sidebar a {
+      color: #ddd;
+      text-decoration: none;
+      display: block;
+      padding: 12px 20px;
+      border-radius: 8px;
+      margin: 8px 10px;
+      transition: all 0.3s;
+      font-size: 15px;
+    }
+    .sidebar a:hover, .sidebar a.active {
+      background: linear-gradient(90deg, #495057, #6c757d);
+      color: #fff;
+      transform: translateX(5px);
+    }
+    /* Top Navbar */
+    .top-navbar {
+      margin-left: 250px;
+      background:#212529;
+      padding: 12px 20px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      animation: slideDown 1s ease;
+      color:#ddd;
+    }
+    /* Content */
+    .content {
+      margin-left: 260px;
+      padding: 30px;
+      animation: fadeIn 1.2s ease-in-out;
+    }
+    /* Card */
+    .card {
+      border-radius: 16px;
+      border: none;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    }
+    .card h4 {
+      font-weight: bold;
+      color: #343a40;
+    }
+    /* Buttons */
+    .btn-custom {
+      background: linear-gradient(90deg, #495057, #6c757d);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 30px;
+      transition: all 0.4s ease;
+    }
+    .btn-custom:hover {
+      background: linear-gradient(90deg, #495057, #6c757d);
+      transform: scale(1.05);
+    }
+    /* Footer */
+    .footer {
+        background: linear-gradient(90deg, #212529, #343a40);
+        color: #ddd;
+        padding: 15px 0;
+        text-align: center;
+        font-weight: 500;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
+      .footer span {
+      color: #ddd;
+    }
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideDown {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h4 class="text-center mb-4">📚 Admin Panel</h4>
+    <a href="#"><i class="bi bi-speedometer2"></i> Dashboard</a>
+    <a href="#"><i class="bi bi-people-fill"></i> Manage Users</a>
+    <a href="#" class="active"><i class="bi bi-book-half"></i> Manage Books</a>
+    <a href="#"><i class="bi bi-chat-left-text"></i> Reviews</a>
+    
+  </div>
+
+  <!-- Top Navbar -->
+  <div class="top-navbar">
+    <h5 class="mb-0">📖 Add New Book</h5>
+    <div class="dropdown">
+      <!-- Profile Icon with Highlight -->
+      <img src="https://via.placeholder.com/40" alt="Admin" 
+           width="42" height="42" 
+           class="rounded-circle me-2 border border-3"
+           style="border-color: #ddd;">  <!-- Yellow border for visibility -->
+
+      <strong style="color: #ddd; font-family: 'Segoe UI', sans-serif; font-size: large;">Admin</strong>
+    </a>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownUser">
+        <li><a class="dropdown-item" href="#">Profile</a></li>
+        <li><a class="dropdown-item" href="#">Settings</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item text-danger" href="#">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="content">
+    <div class="card shadow-sm p-4">
+      <h4 class="mb-4">➕ Add Book Details</h4>
+      <form>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label for="title" class="form-label">Book Title</label>
+            <input type="text" class="form-control" id="title" placeholder="Enter book title">
+          </div>
+          <div class="col-md-6">
+            <label for="author" class="form-label">Author</label>
+            <input type="text" class="form-control" id="author" placeholder="Enter author name">
+          </div>
+          <div class="col-md-6">
+            <label for="genre" class="form-label">Genre</label>
+            <select id="genre" class="form-select">
+              <option selected disabled>Choose genre...</option>
+              <option>Fiction</option>
+              <option>Non-Fiction</option>
+              <option>Romance</option>
+              <option>Thriller</option>
+              <option>Science</option>
+              <option>Biography</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label for="published" class="form-label">Published Date</label>
+            <input type="date" class="form-control" id="published">
+          </div>
+          <div class="col-md-6">
+            <label for="isbn" class="form-label">ISBN</label>
+            <input type="text" class="form-control" id="isbn" placeholder="Enter ISBN number">
+          </div>
+          <div class="col-md-6">
+            <label for="status" class="form-label">Status</label>
+            <select id="status" class="form-select">
+              <option>Published</option>
+              <option>Draft</option>
+              <option>Archived</option>
+            </select>
+          </div>
+          <div class="col-12">
+            <label for="desc" class="form-label">Description</label>
+            <textarea class="form-control" id="desc" rows="4" placeholder="Enter book description"></textarea>
+          </div>
+          <div class="col-12">
+            <label for="cover" class="form-label">Upload Book Cover</label>
+            <input class="form-control" type="file" id="cover">
+          </div>
+        </div>
+        <div class="mt-4 text-end">
+          <button type="reset" class="btn btn-outline-secondary me-2">Reset</button>
+          <button type="submit" class="btn btn-custom">💾 Save Book</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <span>&copy; Read - Learn - Enjoy</span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

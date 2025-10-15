@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Manage Messages - Admin Pro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        /* DESIGN ENHANCEMENTS: Modern Utility, Clear Focus, and Smoothness */
+        :root {
+            --light-bg: #f7f9fc; /* Brighter background */
+            --white-card: #ffffff;
+            --dark-primary: #212529; /* Navbar/Table Header */
+            --dark-secondary: #343a40;
+            --main-text: #212529;
+            --secondary-text: #6c757d;
+            --shadow-soft: 0 8px 20px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        body {
+            background-color: var(--light-bg);
+            font-family: 'Inter', sans-serif;
+            color: var(--main-text);
+            min-height: 100vh;
+            padding-bottom: 70px;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: var(--dark-primary);
+            color: #ddd;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+            padding: 15px 30px;
+        }
+        .navbar-brand {
+            font-weight: 800;
+            letter-spacing: 1px;
+            color:#ddd;
+        }
+        .search-bar {
+            border-radius: 30px;
+            background-color: var(--dark-secondary);
+            border: 1px solid #495057;
+            color: #ddd;
+            padding: 8px 15px;
+            transition: all 0.3s;
+        }
+        .search-bar::placeholder {
+            color: #ccc;
+        }
+        .search-bar:focus {
+            background-color: #343a40;
+            border-color: #ffffff;
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Main Card Container */
+        .card {
+            border-radius: 16px;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid #e9ecef;
+            transition: box-shadow 0.3s;
+        }
+        .card h4 {
+            font-weight: 700;
+            color: var(--dark-primary);
+            border-bottom: 1px solid #e9ecef;
+            padding-bottom: 15px;
+            margin-bottom: 20px !important;
+        }
+
+        /* Table */
+        .table-responsive-wrapper {
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #e9ecef;
+        }
+        .table thead {
+            background: linear-gradient(90deg, var(--dark-primary), var(--dark-secondary));
+            color: white;
+            font-weight: 600;
+        }
+        .table tbody tr {
+            transition: background-color 0.2s;
+            cursor: pointer;
+        }
+        .table tbody tr:hover {
+            background-color: #f3f5f8;
+        }
+
+        /* Message Truncation */
+        .message-snippet {
+            max-width: 300px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            color: var(--secondary-text);
+            font-size: 0.95rem;
+        }
+
+        /* Status Badges */
+        .status-badge {
+            font-weight: 600;
+            padding: 7px 12px;
+            border-radius: 20px;
+            min-width: 80px;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+        .bg-warning { background-color: #ffc107 !important; color: var(--dark-primary) !important; } /* Designer touch: Dark text on bright badge */
+        .bg-success { background-color: #28a745 !important; }
+        .bg-danger { background-color: #dc3545 !important; }
+        .bg-primary { background-color: #007bff !important; }
+
+        /* Actions */
+        .btn-action {
+            border-radius: 8px;
+            width: 38px;
+            height: 38px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+        .btn-outline-success:hover {
+            background-color: #28a745;
+            color: white !important;
+        }
+        .btn-outline-primary:hover {
+            background-color: #007bff;
+            color: white !important;
+        }
+
+        /* Footer */
+    .footer {
+        background: linear-gradient(90deg, #212529, #343a40);
+        color: #ddd;
+        padding: 15px 0;
+        text-align: center;
+        font-weight: 500;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
+      .footer span {
+      color: #ddd;
+    }
+        .btn-dark {
+            background-color: var(--dark-primary);
+            border-color: var(--dark-primary);
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .btn-dark:hover {
+            background-color: var(--dark-secondary);
+            transform: scale(1.03);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand" href="#">📬 ADMIN MESSAGES</a>
+            <div class="ms-auto d-flex align-items-center">
+                <div class="input-group">
+                    <input type="text" class="form-control search-bar" placeholder="Search by user or content..." style="border-radius: 30px 0 0 30px; width: 250px;">
+                    <button class="btn btn-outline-light" type="button" style="border-radius: 0 30px 30px 0;"><i class="bi bi-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <div class="card p-4">
+            <h4 class="mb-3">📩 User Support Inbox</h4>
+
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <div class="btn-group btn-group-sm">
+                    <button class="btn btn-primary"><i class="bi bi-filter"></i> All (3)</button>
+                    <button class="btn btn-outline-secondary">Pending (1)</button>
+                    <button class="btn btn-outline-secondary">Replied (1)</button>
+                </div>
+                <button class="btn btn-sm btn-outline-dark"><i class="bi bi-arrow-clockwise"></i> Refresh</button>
+            </div>
+
+            <div class="table-responsive table-responsive-wrapper">
+                <table class="table table-hover align-middle mb-0">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>User</th>
+                            <th>Email</th>
+                            <th>Message Preview</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th class="text-center">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td><i class="bi bi-person-fill me-2 text-primary"></i><span class="fw-bold">John Doe</span></td>
+                            <td><span class="text-secondary">john@example.com</span></td>
+                            <td><div class="message-snippet">I can’t download the book I purchased. Please help. This is urgent.</div></td>
+                            <td class="text-secondary">2025-09-12</td>
+                            <td><span class="badge bg-warning status-badge">Pending</span></td>
+                            <td class="text-center">
+                                <button class="btn btn-sm btn-outline-success btn-action" title="Mark Resolved"><i class="bi bi-check2-circle"></i></button>
+                                <button class="btn btn-sm btn-outline-primary btn-action" title="Reply"><i class="bi bi-reply-fill"></i></button>
+                                <button class="btn btn-sm btn-outline-danger btn-action" title="Delete"><i class="bi bi-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td><i class="bi bi-person-fill me-2 text-success"></i><span class="fw-bold">Jane Smith</span></td>
+                            <td><span class="text-secondary">jane@example.com</span></td>
+                            <td><div class="message-snippet">Great platform! Could you add more fiction books? I love your selection.</div></td>
+                            <td class="text-secondary">2025-09-10</td>
+                            <td><span class="badge bg-success status-badge">Replied</span></td>
+                            <td class="text-center">
+                                <button class="btn btn-sm btn-outline-success btn-action" title="Mark Resolved"><i class="bi bi-check2-circle"></i></button>
+                                <button class="btn btn-sm btn-outline-primary btn-action" title="Reply"><i class="bi bi-reply-fill"></i></button>
+                                <button class="btn btn-sm btn-outline-danger btn-action" title="Delete"><i class="bi bi-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td><i class="bi bi-person-fill me-2 text-info"></i><span class="fw-bold">Alex Johnson</span></td>
+                            <td><span class="text-secondary">alex@example.com</span></td>
+                            <td><div class="message-snippet">I forgot my password. Can you reset it for me? I need access now.</div></td>
+                            <td class="text-secondary">2025-09-08</td>
+                            <td><span class="badge bg-danger status-badge">Closed</span></td>
+                            <td class="text-center">
+                                <button class="btn btn-sm btn-outline-success btn-action" title="Mark Resolved"><i class="bi bi-check2-circle"></i></button>
+                                <button class="btn btn-sm btn-outline-primary btn-action" title="Reply"><i class="bi bi-reply-fill"></i></button>
+                                <button class="btn btn-sm btn-outline-danger btn-action" title="Delete"><i class="bi bi-trash"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="mt-4 text-end">
+                <button class="btn btn-dark"><i class="bi bi-plus-circle-fill me-2"></i> Create New Ticket</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <span>&copy; Admin Panel System | Read - Learn - Enjoy</span>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

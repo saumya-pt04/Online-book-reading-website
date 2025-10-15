@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap Designer Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+      body {
+        background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+      }
+      header {
+            
+        
+        background: linear-gradient(90deg, #212529, #343a40, #495057);
+        color: #f8f9fa;
+        font-size: 38px;
+        font-weight: bold;
+        text-align: left;
+        padding: 15px 10px;
+        border-radius: 0 0 25px 25px;
+        letter-spacing: 2px;
+      }
+      .profile-header {
+        background: #222529;
+        color: white;
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 4px 12px rgb(52, 50, 50);
+      }
+      .profile-header img {
+        border: 5px solid white;
+      }
+      .card {
+        border: none;
+        border-radius: 15px;
+        transition: transform 0.2s;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+      }
+      .footer {
+        background-color: #343a40;
+        color: white;
+        padding: 20px 0;
+        text-align: center;
+        width: 100%;
+      }
+      .badge {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+        margin: 3px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- Navbar -->
+     <header>
+         <nav class="navbar navbar-expand-lg ">
+      <div class="container">
+        <div>Kitabi Kida</div>
+        <form class="d-flex ms-auto">
+          
+          <ul class="navbar-nav">
+                  
+                    
+                    <input class="form-control me-2" type="search" placeholder="Search books, authors..." aria-label="Search">
+                    
+        </form>
+      </div>
+    </nav>
+    </header> 
+    <!-- Container -->
+    <div class="container py-5">
+
+      <!-- Profile Header -->
+      <div class="profile-header text-center mb-5">
+        <img src="https://via.placeholder.com/150" class="rounded-circle img-fluid shadow" alt="Profile Photo">
+        <h2 class="mt-3">Saumya Patel</h2>
+        <p class="lead">Book Enthusiast | Story Lover | Reviewer</p>
+        <div>
+          <a href="#" class="btn btn-light btn-sm"><i class="bi bi-pencil"></i> Edit Profile</a>
+          <a href="#" class="btn btn-outline-light btn-sm"><i class="bi bi-gear"></i> Settings</a>
+        </div>
+      </div>
+
+      <!-- Profile Info -->
+      <div class="row g-4">
+        <!-- About -->
+        <div class="col-md-6">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title text-primary"><i class="bi bi-person"></i> About Me</h5>
+              <ul class="list-unstyled">
+                <li><strong>First Name:</strong> Saumya</li>
+                <li><strong>Last Name:</strong> Patel</li>
+                <li><strong>Date Of Birth:</strong> 15 Aug 1999</li>
+                <li><strong>Email:</strong> john.doe@example.com</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Account Info -->
+        <div class="col-md-6">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title text-primary"><i class="bi bi-person-badge"></i> Account Info</h5>
+              <ul class="list-unstyled">
+                <li><strong>Login Id:</strong> saumya_123</li>
+                <li><strong>Member Since:</strong> 2023</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Genre -->
+        <div class="col-md-6">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title text-primary"><i class="bi bi-bookmarks"></i> Favorite Genres</h5>
+              <span class="badge bg-light text-dark">Fantasy</span>
+              <span class="badge bg-light text-dark">Science Fiction</span>
+              <span class="badge bg-light text-dark">Mystery</span>
+              <span class="badge bg-light text-dark">Romance</span>
+              <span class="badge bg-light text-dark">Thriller</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Author -->
+        <div class="col-md-6">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title text-primary"><i class="bi bi-pen"></i> Favorite Authors</h5>
+              <ul class="list-unstyled">
+                <li>Alex Michaelides</li>
+                <li>Colleen Hoover</li>
+                <li>Stephenie Meyer</li>
+                <li>Ana Huang</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer (full width) -->
+    <footer class="footer mt-5">
+      <div class="container">
+        <span>&copy; 2025 Read - Learn - Enjoy | <i class="bi bi-facebook mx-2"></i><i class="bi bi-twitter mx-2"></i><i class="bi bi-instagram mx-2"></i></span>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
+
+
+
+
+            
